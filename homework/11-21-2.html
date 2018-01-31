@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            width:100%;
+        }
+        #show{
+            text-align: center;
+        }
+        textarea,button,p{
+            margin:0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<a href="" onclick="'fn(this)'"></a>
+<textarea rows="10" cols="50"  id="textarea" ></textarea>
+<button id="btn">生成数据</button>
+<div id="show"></div>
+<script>
+    var btn = document.getElementById('btn');
+    var show =document.getElementById('show');
+    var textarea = document.getElementById('textarea');
+    btn.onclick = function(){
+        if(textarea.value!=''){
+            var new_p =document.createElement('p');
+            var new_a = document.createElement('a');
+            new_a.innerHTML='删除';
+            new_a.setAttribute('href','#');
+            new_a.setAttribute('onclick','del(this)');
+            new_p.innerHTML =textarea.value;
+            new_p.appendChild(new_a);
+            show.appendChild(new_p);
+            textarea.value='';
+        }else{
+            alert('不能为空');
+        }
+    }
+function del(event){
+    event.parentNode.remove();
+}
+
+
+</script>
+</body>
+</html>

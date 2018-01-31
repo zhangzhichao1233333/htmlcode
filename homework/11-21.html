@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击添加点击删除</title>
+</head>
+<body>
+    <div id="show"></div>
+    <input id="addbut"  type="button" value="添加"/>
+    <input id="delbut" type="button" value="删除"/>
+<script>
+    var show = document.getElementById('show');
+    var addbut = document.getElementById('addbut');
+    var delbut = document.getElementById('delbut');
+    var p = document.getElementsByTagName('p');
+    addbut.onclick = function(){
+        var new_p = document.createElement('p');
+        new_p.innerHTML='这是第'+ (p.length+1)+'个标签';
+        show.appendChild(new_p);
+    }
+    delbut.onclick= function(){
+        if(p.length==0){
+            alert('删除失败');
+        }else{
+            p[p.length-1].remove();
+        }
+
+    }
+</script>
+</body>
+</html>

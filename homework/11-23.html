@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            border:0;
+        }
+
+        .div_header{
+            position: relative;
+            margin:0 auto;
+            width:800px;
+            height:500px;
+            /*background: #296aba;*/
+        }
+        ul{
+            list-style: none;
+        }
+        img{
+            position: absolute;
+            top:0px;
+            left:0px;
+            width:800px;
+            height:500px;
+            display: block;
+
+            /*opacity:1;*/
+        }
+        .span{
+            z-index: 10;
+            position: absolute;
+            bottom:30px;
+            right:0px;
+            display: block;
+        }
+        span div{
+            float: left;
+            width:30px;
+            background-color:rgba(0,0,0,0.6);
+            height:30px;
+            display: block;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            margin-right:10px;
+        }
+        .new{
+            float: left;
+            width:30px;
+            background-color:rgba(255,0,0,0.6);
+            height:30px;
+            display: block;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            margin-right:10px;
+        }
+    </style>
+</head>
+<div class="div_header">
+    <ul>
+        <li><a><img src="images/01.jpg" ></a></li>
+        <li><a><img src="images/02.jpg" ></a></li>
+        <li><a><img src="images/03.jpg" ></a></li>
+        <li><a><img src="images/04.jpg" ></a></li>
+    </ul>
+    <span class="span">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </span>
+</div>
+<body>
+<script>
+    var div_header = document.getElementsByClassName('div_header')[0];
+    var img =document.getElementsByTagName('img');
+    var span =document.getElementsByClassName('span')[0];
+    var page_div =span.getElementsByTagName('div');
+    var img_number1=0 ;
+    var img_number2 =0;
+    img[img_number2].style.zIndex = 2;
+    var timer = setInterval('opacity()', 5000);
+    page_div[0].className='new';
+    var timer1='';
+    div_header.onmouseover = function(){
+        clearInterval(timer);
+
+    }
+    div_header.onmouseout =function(){
+        clearInterval(timer);
+        timer = setInterval('opacity()', 5000);
+    }
+    for(var i=0;i<page_div.length;i++){
+        page_div[i].onclick = function(){
+            for(var j=0;j<page_div.length;j++){
+                page_div[j].className='';
+            }
+            this.className='new';
+            clearInterval(timer1);
+            clearInterval(timer);
+            for(var z=0;z<page_div.length;z++){
+                if(page_div[z].className=='new'){
+                    img_number2= z;
+                    timer1=setInterval( 'page_run(img,img_number1,img_number2,0.01)', 10);
+
+                }
+            }
+        }
+    }
+    function opacity() {
+        img_number1 =  img_number2;
+        img_number2 = img_number2>=img.length-1?0:img_number2+1;
+        for(var i=0;i<page_div.length;i++){
+            page_div[i].className='';
+        }
+        page_div[img_number2].className='new';
+        clearInterval(timer1);
+        timer1=setInterval( 'page_run(img,img_number1,img_number2,0.01)', 10);
+
+    }
+    function page_run(img,num,next_num,opacity){
+        if (img[num].style.opacity==''||img[num].style.opacity==1) {
+            img[num].style.opacity=1;
+            img[num].style.zIndex=2;
+            img[next_num].style.zIndex = 1;
+        }
+            if (img[num].style.opacity <= 0) {
+                img[num].style.opacity = 1;
+                img[num].style.zIndex = 0;
+                img[next_num].style.zIndex = 2;
+                img_number1 =next_num;
+                clearInterval(timer1);
+            } else {
+                img[num].style.opacity -=opacity;
+                return false;
+            }
+    }
+</script>
+</body>
+</html>

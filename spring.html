@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="import" href="function.html" id="tmp"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<iframe ></iframe>
+<script>
+    document.write(tmp.import.body.innerHTML);
+</script> <!--a.html-->
+<object data="function.html"></object>
+<div id="head">
+
+</div>
+<script>  document.write('最后一次修改时间：' +document.lastModified);
+  document.writeln(Math.random()*7);
+document.title=('新的标题内容');
+//        document.getElementById('head').onload('function.html');
+</script>
+</body>
+</html>

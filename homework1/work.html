@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            border:0;
+            padding:0;
+            margin: 0;
+        }
+        a{
+            padding-top:14px;
+            height:55px;
+            text-decoration: none;
+            display: block;
+            color:#666;
+        }
+        body{
+            font:12px/1.5 Microsoft Yahei;
+        }
+        ul{
+            list-style: none;
+            width: 192px;
+            height: 210px;
+            overflow: hidden;
+        }
+        li {
+            position: relative;
+            float: left;
+            width: 47px;
+            height: 69px;
+            border-top:1px solid #e7e7e7;
+            border-left:1px solid #e7e7e7;
+            text-align: center;
+            cursor: pointer;
+        }
+        /*li:hover{*/
+            /*-webkit-transform: translate3d(0,-38px,0);*/
+            /*transform: translate3d(0,-38px,0);*/
+        /*}*/
+        i{
+            background:#fff url('image/sprite_fs@1x.png') no-repeat 0 -88px;
+            margin:0 auto;
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
+        span{
+            height:22px;
+            line-height:22px;
+            border-top:2px solid #fff;
+        }
+        .span{
+            position: absolute;
+            right:0;
+            top:0;
+            width:13px;
+            height:22px;
+            text-align:center;
+            color: #fff;
+            background: #e01121;
+        }
+        .i{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            border: solid;
+            border-width: 2px 6px;
+            border-color: #e01121 #e01121 #fff;
+        }
+        a:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--<a href="#" >123</a>-->
+<ul>
+</ul>
+<script>
+    var ul = document.getElementsByTagName('ul')[0];
+    var backgroundPosition = ['0 -88px,话费,','0 -44px,机票,减','-44px -88px,酒店,降','-88px 0,游戏,','-88px -44px,企业购,','0 0,加油站,','-44px -44px,电影票,','-88px -88px,火车票,','-132px 0,众筹,','-132px -44px,理财,','-132px -88px,礼品盒,','-44px 0,白条,'];
+    for(var i=0;i<backgroundPosition.length;i++){
+        var new_li = document.createElement('li');
+        var new_a = document.createElement('a');
+        var new_i = document.createElement('i');
+        var new_span = document.createElement('span');
+        var property = backgroundPosition[i].split(',');
+        new_i.style.backgroundPosition =property[0];
+        new_span.innerHTML=property[1];
+        if(property[2]!=''&&property[2]!=undefined){
+            var new_sign = document.createElement('span');
+            new_sign.setAttribute('class','span');
+            new_sign.innerHTML=property[2]+'<i class="i"></i>';
+            new_a.appendChild(new_sign);
+        }
+        new_a.appendChild(new_i);
+        new_a.appendChild(new_span);
+        new_li.appendChild(new_a);
+        ul.appendChild(new_li);
+        console.log(document.lastModified);
+
+    }
+</script>
+</body>
+</html>

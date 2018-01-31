@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>知识点总结</title>
+
+</head>
+<body>
+    1.行内元素和块元素都有哪些？特点是什么？那些不能直接定义宽高
+    块元素：
+        address -地址
+        blockquote -块引用
+        center -居中对齐
+        dir -目录列表
+        div -常用块级容易也是csslayout的主要标签
+        dl -定义列表
+        fieldset - form控制组
+        form -交互表单
+        h1-h6 标题
+        hr -水平分割线
+        menu -菜单列表
+        ol -有序列表
+        p -段落
+        pre -格式化文本
+        table -表格
+        ul -无序列表
+    行内元素：
+        a -锚点
+        abbr -缩写
+        acronym -首字
+        b -粗体（不推荐）
+        bdo -元素可覆默认的文本方向
+        big - 大写字体
+        br -换行
+        cite -引用
+        code -计算机代码（在引用源码的时候需要）
+        dfn -定义字段
+        em -强调
+        font -字体设定（不推荐）
+        i -斜体
+        img -图片
+        input -输入框
+        kbd -定义键盘文本
+        label -表格标签
+        q -短引用
+        s -中划线(不推荐)
+        samp -定义范例计算机代码
+        select -项目选择
+        small - 小字体文本
+        span -常用内联容器 定义文本内区块
+        strike -中划线
+        strong -粗体强调
+        sub -下标
+        sup -上标
+        textarea -多行文本输入框
+        tt -电传文本
+        u -下划线
+        var -定义变量
+    区别：
+        块级元素可以独占一行 其宽度自动填满其父元素宽度
+        行内元素不会独占一行 相邻元素会排列在同一行，直到一行排不下才换行
+        块级元素可以设置width height属性 行内元素设置width height无效
+        块级元素可以设置margin和padding
+        行内元素的水平方向的padding-left padding-right margin-left margin-right 都会产生边距效果竖直方向无效
+    行内元素
+    2.小盒子在大盒子水平垂直居中的三种方法
+        (1)Transforms变形
+            这是最简单的方法，不仅实现绝对居中同样效果，也支持联合可变高度方法使用
+            内容块定义Transform:translate('-50%','-50%');
+            优点
+            内容可变高度 代码量少
+            缺点
+            IE8不支持  需要使用浏览器厂家前缀
+            可能干扰其他Transform效果
+            某些情况下会出现文本或元素边界渲染模糊的现象
+            .wrapper {
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            }
+        （2）在父级元素上面加上上面3句话，就可以实现子元素水平垂直居中。
+            justify-content:cemter;/*子元素水平居中*/
+            align-items:center;/*子元素垂直居中*/
+            display：-webkit-fiex;
+        (3)  margin:auto实现绝对定位元素的居中（该方法兼容ie8以上浏览器）
+             此方案代码关键点：1、上下左右均0位置定位； margin: auto;
+    3、文字水平居中用什么属性？盒子在页面水平垂直居中用什么属性？
+        text-lign:center;  margin:0 auto;
+
+    5、文本超出出现省略号怎么写
+    text-overflow:ellipsis;
+    6、精灵图怎么实现？
+    #home {background:url('img_navsprites.gif') 0 0;}
+    7、背景图单写和组合的写法？字体相关属性？ul怎么去除小圆点？a去除下划线怎么写？
+        background-color:#fff;
+<span style="background-color:yellow;width: 100px;height: 100px;margin-top: 200px;margin-left: 201px;">123231</span>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块元素</title>
+</head>
+<body>
+    <address>
+        address 标签定义文档或文章的作者/拥有者的联系信息
+        address 元素中文本通常呈现为斜体。大多数浏览器都会在address元素前后添加这行
+        address 元素通常连同其他信息放在 foorer 元素中
+        article 标签规定独立的子包含内容
+        aside 新标签分割整个页面
+        blockquote 定义块引用
+        caption 定义表格标题
+        dir 标签定义目录列表
+        enbod 标签的定义嵌入的内容 比如插件
+        fieldset 元素可以将表单内的相关元素分组
+        <div style="width:100px;height: 100px;border-style: ridge"></div>
+        <meter id="meter" value="3" min="0" max="10" style="background-color: #000;"></meter>
+        <figure>
+            <figcaption  style="position: ab;";: text-align:center"> hahhhaha</figcaption>
+            <img src="../image/timg.gif">
+        </figure>
+        <article>
+            <h1>IE</h1>
+            <p>123</p>
+            <p>534</p>
+            123
+        </article>
+        <article>
+            123
+            <h1>123</h1>
+            <p>zzz</p>
+        </article>
+    </address>
+<script>
+    var meter = document.getElementById('meter');
+    var setinterval = ''
+    var time=10;
+    meter.onclick = function(){
+
+        setinterval = setInterval('fn()',1000);
+    }
+    function fn(){
+        if(time==0){
+            time=10;
+            meter.value = time;
+        }
+        else{
+            time--;
+            meter.value = time;
+        }
+    }
+    Math.
+</script>
+</body>
+</html>
